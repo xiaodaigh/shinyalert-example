@@ -1,6 +1,6 @@
 library(shiny)
 
-shinyalert <- function(id,attachToID,HTMLtext = "Alert!") {	#hot standsfor handsontable
+shinyalert <- function(id,attachToID,HTMLtext = "Alert!") {	
 	shiny::tagList(
 		singleton(tags$head(tags$script(src="shinyalerts.js")))
 		,shiny::HTML(
@@ -31,5 +31,5 @@ shinyUI(basicPage(
   headerPanel("Shiny alerts")
   ,actionButton("actionButton1","Press to show an alert")
   #show this alert when a button is pressed
-  ,shinyalert("actionButton_alert","actionButton1","You pressed the button!") 
+  ,shinyalert("actionButton_alert","actionButton1","You pressed the button! Now Press this banner to close it") 
 ))
