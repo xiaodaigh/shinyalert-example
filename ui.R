@@ -1,42 +1,41 @@
 library(shiny)
 
 # this shiny alert will show when something is clicked
-shinyalert.onclick <- function(id,attachToID,HTMLtext = "Alert!") {	
-	shiny::tagList(
-		singleton(tags$head(tags$script(src="shinyalerts.js")))
-		,shiny::HTML(
-			paste(
-			'<div id="'
-				, id
-				, '" class="shinyalert alert alert-success hide fade out" data-alert="alert">' 
-				, HTMLtext
-				, '</div>'
-			,sep="")
-		)
-		,tags$script(paste(
-			"$(document).on('click','#"
-			,attachToID
-			,"',function() {var el = $('#"
-			,id
-			,"'); el.addClass('in');el.fadeIn()"			
-			,"})"
-			,sep="")
+# shinyalert.onclick <- function(id,attachToID,HTMLtext = "Alert!") {	
+# 	shiny::tagList(
+# 		singleton(tags$head(tags$script(src="shinyalerts.js")))
+# 		,shiny::HTML(
+# 			paste(
+# 			'<div id="'
+# 				, id
+# 				, '" class="shinyalert alert alert-success hide fade out" data-alert="alert">' 
+# 				, HTMLtext
+# 				, '</div>'
+# 			,sep="")
+# 		)
+# 		,tags$script(paste(
+# 			"$(document).on('click','#"
+# 			,attachToID
+# 			,"',function() {var el = $('#"
+# 			,id
+# 			,"'); el.addClass('in');el.fadeIn()"			
+# 			,"})"
+# 			,sep="")
 			
-		)
-	)
-}
+# 		)
+# 	)
+# }
 
 
 # this shiny alert will show when you call the function showShinyAlert(id) in your server.R code inside a reactive environment
-shinyalert <- function(id,HTMLtext = "Alert!") {	
+shinyalert <- function(id) {	
 	shiny::tagList(
 		singleton(tags$head(tags$script(src="shinyalerts.js")))
 		,shiny::HTML(
 			paste(
 			'<div id="'
 				, id
-				, '" class="shinyalert alert alert-success hide fade out" data-alert="alert">' 
-				, HTMLtext
+				, '" class="shinyalert alert alert-success hide fade out" data-alert="alert">' 			
 				, '</div>'
 			,sep="")
 		)
@@ -61,5 +60,5 @@ shinyUI(basicPage(
   headerPanel("Shiny alerts")
   ,actionButton("actionButton1","Press to show an alert")
   #show this alert when a button is pressed
-  ,shinyalert("actionButton_alert","You pressed the button! Now Press this banner to close it") 
+  ,shinyalert("actionButton_alert") 
 ))
