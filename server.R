@@ -23,7 +23,7 @@ shinyServer(function(input, output,session) {
 	observe({
 		if(input$actionButton1 > 0) {
 			no_of_showing <<- no_of_showing + 1
-			showShinyAlert("actionButton_alert",paste("You tried to show me",no_of_showing,"time(s)"),session)
+			showShinyAlert("actionButton_alert",paste("You tried to show me",no_of_showing,"time(s). Click me to close."),session)
 		} else {
 			return("")
 		}
