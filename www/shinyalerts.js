@@ -1,7 +1,7 @@
 // input binding
 $(document).on('click', '.shinyalert', function(){
         var el = $(this);   
-        console.log("you clickd me")
+        //console.log("you clickd me")
         el.fadeOut()
         el.removeClass("in")
         el.toggleClass('clickclick') //return something different everytime to invalidate itself
@@ -14,7 +14,7 @@ var shinyalert = new Shiny.InputBinding();
                 return $(scope).find(".shinyalert");
         },
         getValue: function(el){        
-             console.log("i am getting this")
+             //console.log("i am getting this")
              return($(el).hasClass('clickclick')) 
         },
         setValue: function(el, value) {
