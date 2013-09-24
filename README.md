@@ -3,7 +3,7 @@ Shiny Alert banner example!
 
 A simple Shiny alert example. To run
 
-shiny::runApp("shinyalert-example","xiaodaigh")
+shiny::runGitHub("shinyalert-example","xiaodaigh")
 
 To use in your own Apps
 ==================
